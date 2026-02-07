@@ -1,0 +1,125 @@
+<h2 mat-dialog-title>
+  <mat-icon>edit</mat-icon>
+  Edit Equipment
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="equipmentForm">
+    <!-- Equipment Name -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Equipment Name</mat-label>
+      <input
+        matInput
+        formControlName="equipmentName"
+      />
+      <mat-icon matPrefix>devices</mat-icon>
+      @if (hasError('equipmentName')) {
+        <mat-error>{{ getErrorMessage('equipmentName') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Serial Number -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Serial Number</mat-label>
+      <input
+        matInput
+        formControlName="serialNumber"
+      />
+      <mat-icon matPrefix>tag</mat-icon>
+      @if (hasError('serialNumber')) {
+        <mat-error>{{ getErrorMessage('serialNumber') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Category -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryId">
+        @for (category of data.categories; track category.id) {
+          <mat-option [value]="category.id">
+            {{ category.categoryName }}
+          </mat-option>
+        }
+      </mat-select>
+      <mat-icon matPrefix>category</mat-icon>
+      @if (hasError('categoryId')) {
+        <mat-error>{{ getErrorMessage('categoryId') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Location -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Location</mat-label>
+      <mat-select formControlName="locationId">
+        @for (location of data.locations; track location.id) {
+          <mat-option [value]="location.id">
+            {{ location.locationName }} ({{ location.building }}, {{ location.floor }})
+          </mat-option>
+        }
+      </mat-select>
+      <mat-icon matPrefix>location_on</mat-icon>
+      @if (hasError('locationId')) {
+        <mat-error>{{ getErrorMessage('locationId') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Purchase Date -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Purchase Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="purchaseDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      @if (hasError('purchaseDate')) {
+        <mat-error>{{ getErrorMessage('purchaseDate') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Status -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of equipmentStatuses; track status) {
+          <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+      <mat-icon matPrefix>info</mat-icon>
+      @if (hasError('status')) {
+        <mat-error>{{ getErrorMessage('status') }}</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-content>
+  @if (equipmentForm.invalid && equipmentForm.touched) {
+    <div class="validation-error">
+      <mat-icon>error</mat-icon>
+      Please fix the errors below before saving.
+    </div>
+  }
+  
+  <form [formGroup]="equipmentForm">
+    <!-- rest of form -->
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="equipmentForm.invalid"
+  >
+    <mat-icon>save</mat-icon>
+    Save Changes
+  </button>
+</mat-dialog-actions>

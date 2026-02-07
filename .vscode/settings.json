@@ -1,0 +1,4 @@
+{
+  "dotnet-test-explorer.testProjectPath": "API.Tests/API.Tests.csproj",
+  "dotnet.defaultSolution": "EquipmentManagementSystem.sln"
+}

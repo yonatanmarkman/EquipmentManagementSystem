@@ -1,0 +1,22 @@
+[
+  {
+    "LocationName": "Main Office",
+    "Building": "Building A",
+    "Floor": "1st Floor"
+  },
+  {
+    "LocationName": "IT Department",
+    "Building": "Building A",
+    "Floor": "3rd Floor"
+  },
+  {
+    "LocationName": "Conference Room",
+    "Building": "Building B",
+    "Floor": "2nd Floor"
+  },
+  {
+    "LocationName": "Storage",
+    "Building": "Building C",
+    "Floor": "Ground Floor"
+  }
+]

@@ -1,0 +1,62 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand">
+      <mat-icon class="brand-icon">inventory_2</mat-icon>
+      <span class="brand-text" routerLink="/equipment">Equipment Manager</span>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="navbar-links">
+      <button
+        mat-button
+        routerLink="/equipment"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <mat-icon>list</mat-icon>
+        Equipment List
+      </button>
+
+      <button
+        mat-button
+        routerLink="/equipment/new"
+        routerLinkActive="active-link"
+      >
+        <mat-icon>add_circle</mat-icon>
+        Add Equipment
+      </button>
+    </div>
+
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <!-- Dark Mode Toggle -->
+      <button
+        mat-icon-button
+        (click)="toggleTheme()"
+        [matTooltip]="themeService.isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+      >
+        @if (themeService.isDarkMode()) {
+          <mat-icon>light_mode</mat-icon>
+        } @else {
+          <mat-icon>dark_mode</mat-icon>
+        }
+      </button>
+
+      <!-- Menu (for future features) -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More options">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

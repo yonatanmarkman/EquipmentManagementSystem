@@ -1,0 +1,42 @@
+[
+  {
+    "EquipmentName": "Dell Latitude 7420",
+    "SerialNumber": "DL7420-001",
+    "CategoryName": "Computers",
+    "LocationName": "IT Department",
+    "PurchaseDate": "2023-01-15T00:00:00",
+    "Status": "Active"
+  },
+  {
+    "EquipmentName": "HP LaserJet Pro",
+    "SerialNumber": "HP-LJ-002",
+    "CategoryName": "Office Equipment",
+    "LocationName": "Main Office",
+    "PurchaseDate": "2022-08-20T00:00:00",
+    "Status": "Active"
+  },
+  {
+    "EquipmentName": "Cisco Catalyst Switch",
+    "SerialNumber": "CS-2960-003",
+    "CategoryName": "Network Equipment",
+    "LocationName": "IT Department",
+    "PurchaseDate": "2021-05-10T00:00:00",
+    "Status": "InMaintenance"
+  },
+  {
+    "EquipmentName": "MacBook Pro 16",
+    "SerialNumber": "MBP16-004",
+    "CategoryName": "Computers",
+    "LocationName": "IT Department",
+    "PurchaseDate": "2023-03-25T00:00:00",
+    "Status": "Active"
+  },
+  {
+    "EquipmentName": "Ergonomic Office Chair",
+    "SerialNumber": "EOC-2023-005",
+    "CategoryName": "Furniture",
+    "LocationName": "Main Office",
+    "PurchaseDate": "2023-02-14T00:00:00",
+    "Status": "OutOfService"
+  }
+]

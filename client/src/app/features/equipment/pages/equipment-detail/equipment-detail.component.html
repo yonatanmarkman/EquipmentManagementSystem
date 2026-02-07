@@ -1,0 +1,100 @@
+<div class="equipment-detail-container">
+  <!-- Loading Spinner -->
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+  <!-- Error Message -->
+  @if (error()) {
+    <div class="error-message">
+      <mat-icon>error</mat-icon>
+      {{ error() }}
+      <button mat-raised-button color="primary" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to List
+      </button>
+    </div>
+  }
+
+  <!-- Equipment Details -->
+  @if (!loading() && !error() && equipment()) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div class="header-title">
+            <mat-icon>devices</mat-icon>
+            <h2>{{ equipment()!.equipmentName }}</h2>
+          </div>
+        </mat-card-title>
+        <div class="header-actions">
+          <button mat-icon-button (click)="goBack()" matTooltip="Back to list">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <button mat-raised-button color="primary" (click)="openEditDialog()">
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+          <button mat-raised-button color="warn" (click)="openDeleteDialog()">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="details-grid">
+          <!-- Serial Number -->
+          <div class="detail-item">
+            <div class="detail-label">
+              <mat-icon>tag</mat-icon>
+              Serial Number
+            </div>
+            <div class="detail-value">{{ equipment()!.serialNumber }}</div>
+          </div>
+
+          <!-- Category -->
+          <div class="detail-item">
+            <div class="detail-label">
+              <mat-icon>category</mat-icon>
+              Category
+            </div>
+            <div class="detail-value">{{ equipment()!.categoryName }}</div>
+          </div>
+
+          <!-- Location -->
+          <div class="detail-item">
+            <div class="detail-label">
+              <mat-icon>location_on</mat-icon>
+              Location
+            </div>
+            <div class="detail-value">{{ equipment()!.locationName }}</div>
+          </div>
+
+          <!-- Purchase Date -->
+          <div class="detail-item">
+            <div class="detail-label">
+              <mat-icon>calendar_today</mat-icon>
+              Purchase Date
+            </div>
+            <div class="detail-value">{{ equipment()!.purchaseDate | date: 'mediumDate' }}</div>
+          </div>
+
+          <!-- Status -->
+          <div class="detail-item">
+            <div class="detail-label">
+              <mat-icon>info</mat-icon>
+              Status
+            </div>
+            <div class="detail-value">
+              <mat-chip [color]="getStatusColor(equipment()!.status)" highlighted>
+                {{ equipment()!.status }}
+              </mat-chip>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

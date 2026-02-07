@@ -1,0 +1,407 @@
+/* Import light theme by default */
+@import './theme-light.scss';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Light Theme Variables */
+body.light-theme {
+  --background-color: #fafafa;
+  --surface-color: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --border-color: #e0e0e0;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --border-color: #333333;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* Dark theme Material component overrides */
+.dark-theme {
+  /* Cards */
+  .mat-mdc-card {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Tables */
+  .mat-mdc-table {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-header-row {
+    background-color: #2a2a2a !important;
+  }
+
+  .mat-mdc-header-cell {
+    color: var(--text-primary) !important;
+    background-color: #2a2a2a !important;
+  }
+
+  .mat-mdc-cell {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-row:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* Form fields */
+  .mat-mdc-form-field {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    background-color: var(--surface-color) !important;
+  }
+
+  /* Labels - both floating and non-floating */
+  .mat-mdc-form-field-label,
+  .mat-mdc-floating-label {
+    color: var(--text-secondary) !important;
+  }
+
+  /* When focused, label should be brighter */
+  .mat-mdc-form-field.mat-focused .mat-mdc-form-field-label,
+  .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+    color: #90caf9 !important;
+  }
+
+  /* Input text and select values */
+  .mat-mdc-select-value,
+  .mat-mdc-input-element {
+    color: var(--text-primary) !important;
+  }
+
+  /* Placeholder text - make it subtle */
+  .mat-mdc-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.3) !important;
+    opacity: 1 !important;
+  }
+
+  /* Input field text color (typed text) */
+  .mat-mdc-input-element {
+    caret-color: var(--text-primary) !important;
+  }
+
+  /* Outline borders */
+  .mat-mdc-form-field-outline {
+    color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .mat-mdc-form-field:hover .mat-mdc-form-field-outline {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .mat-mdc-form-field.mat-focused .mat-mdc-form-field-outline {
+    color: var(--text-primary) !important;
+  }
+
+  /* Notched outline (the actual border lines) */
+  .mat-mdc-notch-piece {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .mat-mdc-form-field:hover .mat-mdc-notch-piece {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .mat-mdc-form-field.mat-focused .mat-mdc-notch-piece {
+    border-color: #90caf9 !important;
+  }
+
+  .mat-mdc-form-field-hint {
+    color: var(--text-secondary) !important;
+  }
+
+  /* Select dropdown */
+  .mat-mdc-select-panel {
+    background-color: var(--surface-color) !important;
+  }
+
+  .mat-mdc-option {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-option:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Dialogs */
+  .mat-mdc-dialog-container {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-dialog-title {
+    color: var(--text-primary) !important;
+  }
+
+  /* Paginator styling - centered in both modes */
+  mat-paginator {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .mat-mdc-paginator {
+    width: 100% !important;
+  }
+
+  .mat-mdc-paginator-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    padding: 0 16px !important;
+  }
+
+  .mat-mdc-paginator-range-actions {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Remove default positioning */
+  .mat-mdc-paginator-page-size {
+    margin-right: auto !important;
+  }
+
+  .mat-mdc-paginator-range-label {
+    margin: 0 32px !important;
+  }
+
+  /* Buttons */
+  .mat-mdc-icon-button {
+    color: var(--text-primary) !important;
+  }
+
+  /* Menu */
+  .mat-mdc-menu-panel {
+    background-color: var(--surface-color) !important;
+  }
+
+  .mat-mdc-menu-item {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Chips - Status colors for dark mode */
+  .mat-mdc-chip.mat-primary {
+    background-color: #1565c0 !important; /* Dark blue for Active */
+    color: #ffffff !important;
+  }
+
+  .mat-mdc-chip.mat-accent {
+    background-color: #6a1b9a !important; /* Dark purple for InMaintenance */
+    color: #ffffff !important;
+  }
+
+  .mat-mdc-chip.mat-warn {
+    background-color: #c62828 !important; /* Dark red for OutOfService */
+    color: #ffffff !important;
+  }
+
+  .mat-mdc-chip:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
+    background-color: #424242 !important; /* Dark gray for Retired */
+    color: #b0b0b0 !important;
+  }
+
+  /* Datepicker in dark mode */
+  .mat-datepicker-content {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .mat-calendar {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .mat-calendar-body-label,
+  .mat-calendar-period-button {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-calendar-table-header th {
+    color: var(--text-secondary) !important;
+  }
+
+  .mat-calendar-body-cell-content {
+    color: var(--text-primary) !important;
+    background-color: transparent !important;
+  }
+
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* Selected date */
+  .mat-calendar-body-selected {
+    background-color: #1976d2 !important;
+    color: white !important;
+  }
+
+  /* Disabled dates (future dates) */
+  .mat-calendar-body-disabled .mat-calendar-body-cell-content {
+    color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Month/Year picker */
+  .mat-calendar-body-active {
+    color: var(--text-primary) !important;
+  }
+
+  /* Inputs with icons */
+  .mat-mdc-form-field .mat-mdc-form-field-icon-prefix mat-icon,
+  .mat-mdc-form-field .mat-mdc-form-field-icon-suffix mat-icon {
+    color: var(--text-secondary) !important;
+  }
+
+  /* Dividers */
+  .mat-divider {
+    border-top-color: var(--border-color) !important;
+  }
+
+  /* Form field errors in dark mode */
+  .mat-mdc-form-field-error {
+    color: #ff5252 !important; /* Bright red that's visible in dark mode */
+  }
+
+  /* Cancel button specifically in dark mode */
+  .mat-mdc-button {
+    color: var(--text-primary) !important;
+  }
+
+  /* Override Material's default button colors */
+  .mat-mdc-button.mat-mdc-button-base {
+    color: var(--text-primary) !important;
+  }
+
+  /* Text buttons (non-raised) */
+  .mat-mdc-text-button {
+    color: var(--text-primary) !important;
+  }
+
+  /* Force all non-primary buttons to use theme text color */
+  .mat-mdc-button:not([color="primary"]):not([color="accent"]):not([color="warn"]) {
+    color: var(--text-primary) !important;
+  }
+
+  button.mat-mdc-button {
+    color: var(--text-primary) !important;
+  }
+
+  /* Raised buttons without color should also be visible */
+  .mat-mdc-raised-button:not([color="primary"]):not([color="accent"]):not([color="warn"]) {
+    background-color: #2a2a2a !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Equipment detail page in dark mode */
+  .detail-label {
+    color: var(--text-secondary) !important;
+  }
+
+  .detail-value {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+  }
+
+  /* Make sure card content is visible */
+  .mat-mdc-card-content {
+    color: var(--text-primary) !important;
+  }
+
+  /* Card titles */
+  .mat-mdc-card-title,
+  .mat-mdc-card-header {
+    color: var(--text-primary) !important;
+  }
+
+  /* Paginator in dark mode */
+  .mat-mdc-paginator {
+    background-color: var(--surface-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-paginator-container {
+    background-color: var(--surface-color) !important;
+  }
+
+  .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator-page-size-label {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* Snackbar styles */
+.success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  border-radius: 8px !important;  /* Changed from 4px to 8px for more rounding */
+}
+
+/* Additional snackbar styling */
+.mat-mdc-snack-bar-container {
+  border-radius: 8px !important;
+}
+
+/* Smooth transitions */
+body,
+.mat-mdc-card,
+.mat-mdc-table,
+.mat-mdc-form-field,
+.mat-mdc-dialog-container {
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Scrollbar styling for dark mode */
+.dark-theme::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dark-theme::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Hide required asterisks on form fields */
+.mat-mdc-form-field-required-marker {
+  display: none !important;
+}

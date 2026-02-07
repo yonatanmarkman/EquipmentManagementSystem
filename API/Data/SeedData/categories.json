@@ -1,0 +1,18 @@
+[
+  {
+    "CategoryName": "Computers",
+    "Description": "Desktop computers, laptops, and workstations"
+  },
+  {
+    "CategoryName": "Network Equipment",
+    "Description": "Routers, switches, and network hardware"
+  },
+  {
+    "CategoryName": "Office Equipment",
+    "Description": "Printers, scanners, and office devices"
+  },
+  {
+    "CategoryName": "Furniture",
+    "Description": "Desks, chairs, and office furniture"
+  }
+]
